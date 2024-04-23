@@ -13,7 +13,9 @@ player = pygame.Rect(300,250, 150,150)
 
 # Parameters for Food spawning
 eaten = True
+
 foodX= random.randrange(1280)
+
 foodY = random.randrange(720)
 
 while True:
@@ -21,12 +23,13 @@ while True:
 
     # Refresh screen at the start of each loop
     screen.fill('black')
-    # Draw player rectangle as red
+    # Draw red player rectangle
     pygame.draw.rect(screen, (255, 0, 0), player)
     
     #if the food was eaten, the Coordinates will change
     if(eaten):  
         foodX= random.randrange(1280)
+
         foodY = random.randrange(720)
         eaten = False
 

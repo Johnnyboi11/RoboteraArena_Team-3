@@ -5,14 +5,14 @@ import random
 pygame.init()
 
 # determine the screen display size for the game
-screen = pygame.display.set_mode((1280,720))
+screen = pygame.display.set_mode((1280, 720))
 
-# coordinates on the screen: (300,250), Width/Height of player Rectangle: (150,150)
-player = pygame.Rect(300,250, 150,150)
+# coordinates on the screen: (300, 250), Width/Height of player Rectangle: (150, 150)
+player = pygame.Rect(300, 250, 150, 150)
 
 # Parameters for Food spawning
 eaten = True
-foodX= random.randrange(1280)
+foodX = random.randrange(1280)
 foodY = random.randrange(720)
 
 # Game Loop
@@ -23,34 +23,34 @@ while True:
     # Draw red player rectangle
     pygame.draw.rect(screen, (255, 0, 0), player)
     
-    #if the food was eaten, the Coordinates will change
-    if(eaten):  
-        foodX= random.randrange(1280)
+    # if the food was eaten, the Coordinates will change
+    if eaten:  
+        foodX = random.randrange(1280)
         foodY = random.randrange(720)
         eaten = False
 
-    #draw the food
-    food = pygame.Rect(foodX,foodY, 15,15)      
-    pygame.draw.rect(screen,"yellow", food)    
+    # draw the food
+    food = pygame.Rect(foodX, foodY, 15, 15)      
+    pygame.draw.rect(screen, "yellow", food)    
        
-    #if collision occurs, the food will be eaten
-    if(player.colliderect(food)):
-        eaten=True
+    # if collision occurs, the food will be eaten
+    if player.colliderect(food):
+        eaten = True
     
     # save currently pressed key
     key = pygame.key.get_pressed()
 
     # Process player inputs - WASD
-    if key[pygame.K_a] == True:
+    if key[pygame.K_a]:
         # moving left
         player.move_ip(-1, 0)    # move_ip = "move in place"
-    elif key[pygame.K_d] == True:
+    elif key[pygame.K_d]:
         # moving right
         player.move_ip(1, 0)
-    elif key[pygame.K_w] == True:
+    elif key[pygame.K_w]:
         # moving up
         player.move_ip(0, -1)
-    elif key[pygame.K_s] == True:
+    elif key[pygame.K_s]:
         # moving down
         player.move_ip(0, 1) 
         

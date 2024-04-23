@@ -7,7 +7,8 @@ pygame.init()
 # determine the screen display size for the game
 screen = pygame.display.set_mode((1280, 720))
 
-# coordinates on the screen: (300, 250), Width/Height of player Rectangle: (150, 150)
+# coordinates on the screen: (300, 250), Width/Height of
+# player Rectangle: (150, 150)
 player = pygame.Rect(300, 250, 150, 150)
 
 # Parameters for Food spawning
@@ -22,21 +23,18 @@ while True:
     screen.fill('black')
     # Draw red player rectangle
     pygame.draw.rect(screen, (255, 0, 0), player)
-    
     # if the food was eaten, the Coordinates will change
-    if eaten:  
+    if eaten:
         foodX = random.randrange(1280)
         foodY = random.randrange(720)
         eaten = False
 
     # draw the food
-    food = pygame.Rect(foodX, foodY, 15, 15)      
-    pygame.draw.rect(screen, "yellow", food)    
-       
+    food = pygame.Rect(foodX, foodY, 15, 15)
+    pygame.draw.rect(screen, "yellow", food)
     # if collision occurs, the food will be eaten
     if player.colliderect(food):
         eaten = True
-    
     # save currently pressed key
     key = pygame.key.get_pressed()
 
@@ -52,8 +50,7 @@ while True:
         player.move_ip(0, -1)
     elif key[pygame.K_s]:
         # moving down
-        player.move_ip(0, 1) 
-        
+        player.move_ip(0, 1)
     # Event-loop for quitting the game
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

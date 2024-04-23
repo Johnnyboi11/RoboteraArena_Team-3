@@ -1,8 +1,0 @@
-name: Flake8
-on: [push, pull_request]
-
-jobs:
-  flake8:
-    name: Run Flake8
-      run: |
-        flake8
